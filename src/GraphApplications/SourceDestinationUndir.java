@@ -3,7 +3,8 @@ package GraphApplications;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
+//source and destination connectd in the undireceted graph.
+//we'll start doing dfs from the source and check if the destination is included or not after one iteration.
 class Graph4 {
   List<List<Integer>> graph;
   boolean visited[];
