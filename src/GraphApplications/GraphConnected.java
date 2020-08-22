@@ -1,6 +1,6 @@
 package GraphApplications;
-//checking if the undirected graph is connected
-//Maintain a aboolean array and at the end check if all the index is true then the graph is connected otherwise not.
+//checking if the undirected graph is connected.Use the dfs traversal.
+//Maintain a a boolean array and at the end check if all the index is true then the graph is connected otherwise not.
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
