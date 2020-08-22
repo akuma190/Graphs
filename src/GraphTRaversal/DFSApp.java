@@ -2,7 +2,7 @@ package GraphTRaversal;
 
 
 import java.util.Stack;
-
+//USING THE ADJACENCY MATRIX
 class Vertex {
   public char label;
   public boolean wasVisited;
