@@ -3,7 +3,20 @@ package GraphApplications;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
+//if directed graph has the cycle using DFS.
+//if the value appears on the same stack then only cycle otherwise not.
+//we will use to arrays visited and recursive.
+//2 is already in visisted but not in recursive for that node then its is not a cycle.
+//0->1,2
+//1->2
+//0->3
+//3->4
+//4->0
+//visited stack : 0 1 2 3 4
+//
+//whatever values are there in the stack we add in recursive stack
+//recursive stack: 0 1 2 3 4
+//O(V+E)
 class Graph6 {
   List<List<Integer>> graph;
   boolean visited[], recursiveStack[];
@@ -40,7 +53,7 @@ class Graph6 {
       return true;
     }
     
-    if(visited[index]) {
+    if(visited[index]) {//if the passed neighbour is alread visited then will return.
       return false;
     }
     
@@ -49,13 +62,13 @@ class Graph6 {
 
     List<Integer> neighboursList = graph.get(index);
 
-    for (Integer neighbour : neighboursList) {
-      if (ifCycleExists(neighbour)) {
+    for (Integer neighbour : neighboursList) {//we'll get the neighbour list and then keep on checking for each node.
+      if (ifCycleExists(neighbour)) {//
         return true;
       } 
     }
     
-    recursiveStack[index] = false;
+    recursiveStack[index] = false;//we set false again and this is backtracking.
     return false;
   }
 }
