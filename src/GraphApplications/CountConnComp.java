@@ -3,7 +3,7 @@ package GraphApplications;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
+//to find the number of connected components in a graph.
 class Graph2 {
   List<List<Integer>> graph;
   boolean visited[];
@@ -28,7 +28,7 @@ class Graph2 {
     int numberOfConnectedComponent = 0;
     
     for(int i = 0; i < nodes; i++) {
-      if(!visited[i]) {//if not connected then count.
+      if(!visited[i]) {//If the node is not connected after the first iteration dfs will be called and count will increase.
         dfs(i);
         numberOfConnectedComponent++;
       }
