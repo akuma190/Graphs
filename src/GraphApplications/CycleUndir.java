@@ -3,6 +3,9 @@ package GraphApplications;
 import java.util.ArrayList;
 import java.util.List;
 
+//to check if the undirecetd graph has the cysle.
+//if you start from on point then you can reach to the same point.
+//graph can be not connected but still with cycle.
 class Graph5 {
   List<List<Integer>> graph;
   boolean visited[];
@@ -36,6 +39,8 @@ class Graph5 {
     return false;
   }
 
+  //we will pass the parent of the current node.
+  //USING DFS RECURSIVELY
   public boolean ifCycle(int index, int parent) {
     
     visited[index] = true;
@@ -44,7 +49,7 @@ class Graph5 {
     
     for(Integer neighbour: neighbourList) {
       if(!visited[neighbour]) {
-        ifCycle(neighbour, index);
+        ifCycle(neighbour, index);//PASSING INDEX AS PARENTS WITH ITS NEIGHBOURS
       } else if(neighbour != parent) {
         return true;
       }
