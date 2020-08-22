@@ -6,7 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-
+//here we are using the adjacency list.
+//topological sort in directed graph.
+//for topological sort starting point should be there.
+//find the incoming degree for each of the nodes.
+//for 0 there will be no incoming edge.
+//after completing 0 we will remove its edges.
+//then we will add the next edges with incoming 0.
 class Graph7 {
   List<List<Integer>> graph;
   HashMap<Integer, Integer> incomingDegree;
@@ -48,7 +54,7 @@ class Graph7 {
       List<Integer> childrenList = graph.get(source);
       
       for(Integer child: childrenList) {
-        incomingDegree.put(child, incomingDegree.get(child) - 1);
+        incomingDegree.put(child, incomingDegree.get(child) - 1);//for each children reduce the incoming degree.
         
         if(incomingDegree.get(child) == 0) {
           sourceQueue.add(child);
@@ -56,7 +62,7 @@ class Graph7 {
       }
     }
     
-    if(result.size() != nodes) {
+    if(result.size() != nodes) {//condition for checking the cycle.
       System.out.println("Cycle is there in graph");
       return new ArrayList<>();
     }
