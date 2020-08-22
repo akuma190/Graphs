@@ -1,7 +1,9 @@
 package GraphApplications;
 
-//To check if a directed graph is strongly connected
-//for this we will be using DFS
+//To check if a directed graph is strongly connected.
+//from any point we can reach to any other point.
+//for this we will be using DFS on each node.
+//
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
