@@ -1,5 +1,5 @@
 package GraphApplications;
-
+//applied for directed acyclic graph
 class Vertex {
 	  public char label;
 	  public Vertex(char lab) {
@@ -44,6 +44,7 @@ class Vertex {
 	        return;
 	      }
 	      
+	      //we will fill from the end and add H to the last.
 	      sortedArray[nVerts-1] = vertexList[currentVertex].label;
 	      
 	      deleteVertex(currentVertex);
@@ -68,7 +69,7 @@ class Vertex {
 	          break;
 	        }
 	      }
-	      if(!isEdge) 
+	      if(!isEdge) //if row and col is not >0 then that rwo will be returned.
 	        return row;
 	    }  
 	    return -1;
