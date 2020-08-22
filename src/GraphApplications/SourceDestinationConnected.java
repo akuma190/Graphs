@@ -3,7 +3,9 @@ package GraphApplications;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
+//to check if the source and destination are connected in a directed graph.
+//apply the depth first search on the source.
+//if the viiting destion comes in the traversal then we will use true.
 class Graph3 {
   List<List<Integer>> graph;
   boolean visited[];
