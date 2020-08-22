@@ -1,7 +1,7 @@
 package GraphTRaversal;
 
 import java.util.Stack;
-
+//minimum number of edges between two nodes.
 class Vertex2 {
   public char label;
   public boolean wasVisited;
