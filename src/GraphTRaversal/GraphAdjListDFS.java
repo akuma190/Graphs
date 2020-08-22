@@ -3,7 +3,7 @@ package GraphTRaversal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
+//using the adjcency list
 class Graph2 {
   List<List<Integer>> graph;
   boolean visited[];
