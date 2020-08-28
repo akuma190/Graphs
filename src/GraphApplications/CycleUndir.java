@@ -2,8 +2,8 @@ package GraphApplications;
 
 import java.util.ArrayList;
 import java.util.List;
-
-//to check if the undirecetd graph has the cysle.
+//we'll do the dfs for every point and check if graph exists or not..
+//to check if the undirected graph has the cycle.
 //if you start from on point then you can reach to the same point.
 //graph can be not connected but still with cycle.
 class Graph5 {
