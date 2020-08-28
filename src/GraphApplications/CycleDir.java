@@ -1,12 +1,15 @@
 package GraphApplications;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Stack;
+//we will operate from all the points and at each point we will apply the DFS.
+//We can not solve just by taking the visited array for the direceted graph.
 //if directed graph has the cycle using DFS.
 //if the value appears on the same stack then only cycle otherwise not.
-//we will use to arrays visited and recursive.
-//2 is already in visisted but not in recursive for that node then its is not a cycle.
+//we will use two arrays visited and recursive.
+//2 is already in visited but not in recursive for that node then its is not a cycle.
 //0->1,2
 //1->2
 //0->3
@@ -53,7 +56,7 @@ class Graph6 {
       return true;
     }
     
-    if(visited[index]) {//if the passed neighbour is alread visited then will return.
+    if(visited[index]) {//if the passed neighbor is already visited then will return.
       return false;
     }
     
