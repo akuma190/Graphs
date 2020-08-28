@@ -1,5 +1,6 @@
 package GraphApplications;
-//applied for directed acyclic graph
+//Topological sort using the adjacency matrix for the directed graph.
+//Even the directed graph should be acyclic there should not be the cycle.
 class Vertex {
 	  public char label;
 	  public Vertex(char lab) {
@@ -38,7 +39,7 @@ class Vertex {
 	    int orig_nVerts = nVerts;
 	    
 	    while(nVerts>0) {
-	      int currentVertex = noSuccessors();
+	      int currentVertex = noSuccessors();//finding the value which has no successor.
 	      if(currentVertex == -1) {
 	        System.out.println("Error: Graph has cycle");
 	        return;
