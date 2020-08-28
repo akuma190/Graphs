@@ -1,4 +1,5 @@
 package GraphApplications;
+//connected means if you start from any index of the graph then are you able to reach all the indexes.
 //checking if the undirected graph is connected.Use the dfs traversal.
 //Maintain a a boolean array and at the end check if all the index is true then the graph is connected otherwise not.
 import java.util.ArrayList;
