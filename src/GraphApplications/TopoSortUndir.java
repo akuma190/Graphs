@@ -1,4 +1,4 @@
-package GraphApplications;
+  package GraphApplications;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ import java.util.Queue;
 //then we will add the next edges with incoming 0.
 class Graph7 {
   List<List<Integer>> graph;
-  HashMap<Integer, Integer> incomingDegree;
+  HashMap<Integer, Integer> incomingDegree;//we are using the hashmap to calculate the incoming degree.
   int nodes;
   Queue<Integer> sourceQueue;
 
@@ -36,7 +36,7 @@ class Graph7 {
     graph.get(a).add(b);
     incomingDegree.put(b, incomingDegree.get(b) + 1);
   }
- 
+ //here we are using bfs for the topological sort.
   public List<Integer> topologicalSort() {
 
     for(Map.Entry<Integer, Integer> entry: incomingDegree.entrySet()) {
@@ -56,7 +56,7 @@ class Graph7 {
       for(Integer child: childrenList) {
         incomingDegree.put(child, incomingDegree.get(child) - 1);//for each children reduce the incoming degree.
         
-        if(incomingDegree.get(child) == 0) {
+        if(incomingDegree.get(child) == 0) {//if the incoming degree becomes 0 then only add it to the queue.
           sourceQueue.add(child);
         }
       }
