@@ -35,7 +35,7 @@ class Graph12 {
 	}
 
 	public void addEdge(int sourceNode, int targetNode, int distance) {
-		graph.get(sourceNode).add(new Edge2(targetNode, distance));  xq	
+		graph.get(sourceNode).add(new Edge2(targetNode, distance));  
 		graph.get(targetNode).add(new Edge2(sourceNode, distance));
 	}
 
