@@ -2,6 +2,7 @@ package GraphTRaversal;
 
 import java.util.Stack;
 //minimum number of edges between two nodes.
+//we will be using the DFS to print the minimum spanning tree.
 class Vertex2 {
   public char label;
   public boolean wasVisited;
@@ -91,6 +92,8 @@ public class MSTApp {
     a.addEdge(2, 3); 
     a.addEdge(2, 4); 
     a.addEdge(3, 4); 
+    
+   // System.out.println(a.);
     
     System.out.println("MST: ");
     a.mst();
