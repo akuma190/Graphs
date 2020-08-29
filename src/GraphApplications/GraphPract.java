@@ -112,6 +112,8 @@ public class GraphPract {
 		graph.addEdge(0, 1);
 		graph.addEdge(1, 2);
 		graph.addEdge(2, 0);
+
+		System.out.println(graph.checkCycleUndirected());
 		
 		
 
@@ -280,40 +282,53 @@ class Graph22 {
 		checkIfConnected(source);
 		return visited[destination];
 	}
-	
-	//to check if the cycle exists in iterative manner
-	public boolean checkCycleUndirected(int node1) {
-		Stack<Integer> cyclUndirStack=new Stack<Integer>();
-		
-		int node=0;
+
+	// to check if the cycle exists in iterative manner
+	public boolean checkCycleUndirected() {
+		for(int i=0;i<arr.size();i++) {
+			if(!checkIfCycleUndirected(i)) {
+				//System.out.println()
+				return false;
+			}
+			Arrays.fill(visited, false);
+		}
+		return true;
+	}
+	public boolean checkIfCycleUndirected(int node1) {
+		Stack<Integer> cyclUndirStack = new Stack<Integer>();
+
+		int node = 0;
 		cyclUndirStack.push(node1);
-		visited[node1]=true;
-		
-		while(!cyclUndirStack.isEmpty()) {
-			node=cyclUndirStack.peek();
-			int v=findTheNode(node);
-			
-			if(v==-1) {
+		visited[node1] = true;
+
+		while (!cyclUndirStack.isEmpty()) {
+			node = cyclUndirStack.peek();
+			int v = findTheNode(node);
+
+			if (v == -1) {
 				cyclUndirStack.pop();
-			}else {
+			} else {
 				cyclUndirStack.push(v);
-				visited[v]=true;
-				if(findTheNodeCycle(v,node)) {
+				visited[v] = true;
+				if (findTheNodeCycle(v, node)) {
 					return true;
 				}
 			}
-			
-			
+
 		}
 		return false;
 	}
-	
-	public boolean findTheNodeCycle(int node,int parent) {
+
+	public boolean findTheNodeCycle(int node, int parent) {
 		for (int i = 0; i < arr.get(node).size(); i++) {
-			if (visited[arr.get(node).get(i)] == true && ) {
-				return arr.get(node).get(i);
+			if (visited[arr.get(node).get(i)] == true && arr.get(node).get(i) != parent) {
+				return true;
 			}
 		}
 		return false;
 	}
+	
+	//to check if the cycle exists recurively
+	
+	public boolean
 }
