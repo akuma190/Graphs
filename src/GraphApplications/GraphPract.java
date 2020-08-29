@@ -106,16 +106,27 @@ public class GraphPract {
 //		
 //		System.out.println(graph.sourceDestinConn(0,6));
 
-		Graph22 graph = new Graph22(3);
-		System.out.println("To check if the undirecetd graph has the cycle");
+//		Graph22 graph = new Graph22(4);
+//		System.out.println("To check if the undirecetd graph has the cycle");
+//
+//		graph.addEdge(0, 1);
+//		graph.addEdge(1, 2);
+//		graph.addEdge(2, 3);
+//
+//		//System.out.println(graph.checkCycleUndirected());
+//		System.out.println(graph.checkCycleRecur());
+
+		Graph22 graph = new Graph22(5);
+		System.out.println("To check if the directed graph has the cycle");
 
 		graph.addEdge(0, 1);
 		graph.addEdge(1, 2);
 		graph.addEdge(2, 0);
+		graph.addEdge(0, 3);
+		graph.addEdge(3, 4);
+		graph.addEdge(4, 0);
 
-		System.out.println(graph.checkCycleUndirected());
-		
-		
+		System.out.println(graph.ifDirectedGraphHasCycle());
 
 	}
 }
@@ -123,9 +134,11 @@ public class GraphPract {
 class Graph22 {
 	ArrayList<ArrayList<Integer>> arr = new ArrayList<ArrayList<Integer>>();
 	boolean[] visited;
+	boolean[] recursiveStack;
 
 	Graph22(int size) {
 		visited = new boolean[size];
+		recursiveStack = new boolean[size];
 		for (int i = 0; i < size; i++) {
 			arr.add(new ArrayList<Integer>());
 		}
@@ -285,15 +298,16 @@ class Graph22 {
 
 	// to check if the cycle exists in iterative manner
 	public boolean checkCycleUndirected() {
-		for(int i=0;i<arr.size();i++) {
-			if(!checkIfCycleUndirected(i)) {
-				//System.out.println()
+		for (int i = 0; i < arr.size(); i++) {
+			if (!checkIfCycleUndirected(i)) {
+				// System.out.println()
 				return false;
 			}
 			Arrays.fill(visited, false);
 		}
 		return true;
 	}
+
 	public boolean checkIfCycleUndirected(int node1) {
 		Stack<Integer> cyclUndirStack = new Stack<Integer>();
 
@@ -327,8 +341,66 @@ class Graph22 {
 		}
 		return false;
 	}
-	
-	//to check if the cycle exists recurively
-	
-	public boolean
+
+	// to check if the cycle exists recurively
+
+	public boolean checkCycleRecur() {
+		for (int i = 0; i < arr.size(); i++) {
+			if (checkIfRecurCycle(i, -1)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean checkIfRecurCycle(int node, int parent) {
+		visited[node] = true;
+
+		List<Integer> neighbours = getAllTheNodes(node);
+
+		for (Integer neighbour : neighbours) {
+			if (!visited[neighbour]) {
+				checkIfRecurCycle(neighbour, node);
+			} else if (neighbour != parent) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean ifDirectedGraphHasCycle() {
+
+		for (int i = 0; i < arr.size(); i++) {
+			if (ifCycleExists(i)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public boolean ifCycleExists(int index) {
+		if (recursiveStack[index]) {
+			return true;
+		}
+
+		if (visited[index]) {// if the passed neighbor is already visited then will return.
+			return false;
+		}
+
+		visited[index] = true;
+		recursiveStack[index] = true;
+
+		List<Integer> neighboursList = getAllTheNodes(index);
+
+		for (Integer neighbour : neighboursList) {// we'll get the neighbour list and then keep on checking for each
+													// node.
+			if (ifCycleExists(neighbour)) {//
+				return true;
+			}
+		}
+
+		recursiveStack[index] = false;// we set false again and this is backtracking.
+		return false;
+	}
 }
