@@ -62,7 +62,7 @@ class Vertex {
 	  public int noSuccessors() {
 	    boolean isEdge;
 	    
-	    for(int row=0; row<nVerts; row++) {
+	    for(int row=0; row<nVerts; row++) {//finding a value for which the row and column are zero.
 	      isEdge = false;
 	      for(int col=0; col<nVerts; col++) {
 	        if(adjList[row][col] > 0) {
