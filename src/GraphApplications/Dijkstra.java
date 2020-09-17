@@ -47,11 +47,11 @@ class Graph11 {
 		PriorityQueue<Edge> minHeap = new PriorityQueue<>((e1, e2) -> e1.distanceFromNode - e2.distanceFromNode);
 
 		distance[source] = 0;
-		minHeap.add(new Edge(0, 0));//at the start we mark the length as 0
+		minHeap.add(new Edge(0, 0));//here we are adding the dummy edge.
 
 		while (!minHeap.isEmpty()) {
 			int v = minHeap.poll().targetNode;
-			if (visited[v])
+			if (visited[v])//if the node is visited then we will continue.
 				continue;
 
 			visited[v] = true;
