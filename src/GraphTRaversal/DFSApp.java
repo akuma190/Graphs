@@ -52,17 +52,17 @@ class Graph {
   
   public void dfs() {
     vertexList[0].wasVisited = true;
-    displayVertex(0);
+    //displayVertex(0);
     s.push(0);
     
     while(!s.isEmpty()) {    
       int v = getAdjUnvisitedVertex(s.peek());
-      
+      System.out.println(s);
       if(v == -1) {
         s.pop();
       } else {
         vertexList[v].wasVisited = true;
-        displayVertex(v);
+        //displayVertex(v);
         s.push(v);
       }
     }
