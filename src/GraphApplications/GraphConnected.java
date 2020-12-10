@@ -74,7 +74,7 @@ public class GraphConnected {
     a.addEdge(2, 4);
     a.addEdge(3, 5);
     a.addEdge(4, 5);
-    //a.addEdge(4, 6);
+    a.addEdge(4, 6);
 
     System.out.println(a.ifGraphConnected());
   }
